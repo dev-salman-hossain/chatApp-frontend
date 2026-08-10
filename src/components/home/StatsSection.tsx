@@ -1,30 +1,107 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Users, ShieldCheck, Zap, Star } from 'lucide-react';
+
+interface CountUpProps {
+  target: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+}
+
+const CountUpNumber: React.FC<CountUpProps> = ({
+  target,
+  decimals = 0,
+  prefix = '',
+  suffix = '',
+}) => {
+  const [count, setCount] = useState(0);
+  const elementRef = useRef<HTMLSpanElement>(null);
+  const [hasAnimated, setHasAnimated] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (elementRef.current) {
+      observer.observe(elementRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  useEffect(() => {
+    if (!hasAnimated) return;
+
+    let current = 0;
+    const duration = 1800; // 1.8 seconds animation
+    const steps = 50;
+    const increment = target / steps;
+    const stepTime = duration / steps;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(current);
+      }
+    }, stepTime);
+
+    return () => clearInterval(timer);
+  }, [hasAnimated, target]);
+
+  return (
+    <span ref={elementRef}>
+      {prefix}
+      {count.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+};
 
 const stats = [
   {
     icon: Users,
-    value: '10M+',
+    target: 10,
+    decimals: 0,
+    prefix: '',
+    suffix: 'M+',
     label: 'Active Daily Users',
     desc: 'Trusting alapBD across 140+ countries',
   },
   {
     icon: ShieldCheck,
-    value: '100%',
+    target: 100,
+    decimals: 0,
+    prefix: '',
+    suffix: '%',
     label: 'End-to-End Encrypted',
     desc: 'Zero logs, zero data harvesting',
   },
   {
     icon: Zap,
-    value: '< 50ms',
+    target: 50,
+    decimals: 0,
+    prefix: '< ',
+    suffix: 'ms',
     label: 'Ultra Fast Latency',
     desc: 'Instant message delivery everywhere',
   },
   {
     icon: Star,
-    value: '4.9 / 5',
+    target: 4.9,
+    decimals: 1,
+    prefix: '',
+    suffix: ' / 5',
     label: 'App Store Rating',
     desc: 'Over 250,000 positive user reviews',
   },
@@ -54,7 +131,12 @@ const StatsSection: React.FC = () => {
                 <Icon className="w-6 h-6" />
               </div>
               <h3 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
-                {stat.value}
+                <CountUpNumber
+                  target={stat.target}
+                  decimals={stat.decimals}
+                  prefix={stat.prefix}
+                  suffix={stat.suffix}
+                />
               </h3>
               <p className="text-sm font-bold text-gray-200 mb-1">{stat.label}</p>
               <p className="text-xs text-gray-400 leading-relaxed">{stat.desc}</p>
