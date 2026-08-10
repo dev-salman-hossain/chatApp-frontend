@@ -1,26 +1,42 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+/* Tailwind v4-এর নতুন নিয়মে কালার ভেরিয়েবল ডিক্লেয়ারেশন */
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #111827;
+    --primary: #1C5CFE;
+    --primary-foreground: #ffffff;
+    --secondary: #F3F4F6;
+    --secondary-foreground: #111827;
+    --muted: #6B7280;
+    --border: #E5E7EB;
   }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  .dark {
+    --background: #0F172A;
+    --foreground: #F8FAFC;
+    --primary: #3B76FF;
+    --primary-foreground: #ffffff;
+    --secondary: #1E293B;
+    --secondary-foreground: #F8FAFC;
+    --muted: #94A3B8;
+    --border: #334155;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+  }
 }
