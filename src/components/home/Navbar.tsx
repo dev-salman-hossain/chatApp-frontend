@@ -17,21 +17,23 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Features', href: '#features' },
-    { name: 'Privacy', href: '#privacy' },
-    { name: 'Business', href: '#business' },
-    { name: 'Stats', href: '#stats' },
+    { name: 'Features', href: '/#features' },
+    { name: 'Demo', href: '/#demo' },
+    { name: 'Stickers', href: '/#stickers' },
+    { name: 'Pricing', href: '/#pricing' },
+    { name: 'Stats', href: '/#stats' },
+    { name: 'FAQ', href: '/#faq' },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-all duration-300 w-full ${
         isScrolled
           ? 'bg-[#0D1117]/90 backdrop-blur-md border-b border-gray-800/80 shadow-lg shadow-black/20 py-3'
           : 'bg-transparent py-5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="flex items-center justify-between">
           
           {/* Logo */}
