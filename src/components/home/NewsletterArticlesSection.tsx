@@ -1,17 +1,9 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { Mail, ArrowRight, ShieldCheck, Users, CheckCircle2, Lock, Sparkles } from 'lucide-react';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import React, { useState } from 'react';
+import { Mail, ArrowRight, Users, CheckCircle2, Lock } from 'lucide-react';
 
 const NewsletterArticlesSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -24,26 +16,12 @@ const NewsletterArticlesSection: React.FC = () => {
     }
   };
 
-  useGSAP(() => {
-    gsap.from('.na-card', {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-      },
-      y: 35,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'power3.out',
-    });
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="newsletter" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch">
         
         {/* Newsletter Subscription Box (Left Column - 6 cols) */}
-        <div className="na-card lg:col-span-6 bg-gradient-to-br from-green-950/40 via-[#161B22] to-emerald-950/40 border border-green-500/20 rounded-3xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+        <div className="lg:col-span-6 bg-gradient-to-br from-green-950/40 via-[#161B22] to-emerald-950/40 border border-green-500/20 rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-green-500/10 rounded-full blur-2xl pointer-events-none" />
           
           <div>
@@ -88,7 +66,7 @@ const NewsletterArticlesSection: React.FC = () => {
         </div>
 
         {/* Privacy Article Card (Middle Column - 3 cols) */}
-        <div className="na-card lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-green-500/30 transition-all duration-300 shadow-xl">
+        <div className="lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-green-500/30 transition-all duration-300 shadow-xl">
           <div>
             {/* Visual Thumbnail */}
             <div className="w-full aspect-16/9 rounded-2xl bg-gradient-to-tr from-emerald-950 via-gray-900 to-gray-950 border border-gray-800 p-4 mb-6 flex items-center justify-center relative overflow-hidden group-hover:border-green-500/30 transition-colors">
@@ -121,7 +99,7 @@ const NewsletterArticlesSection: React.FC = () => {
         </div>
 
         {/* Tips Article Card (Right Column - 3 cols) */}
-        <div className="na-card lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-emerald-500/30 transition-all duration-300 shadow-xl">
+        <div className="lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-emerald-500/30 transition-all duration-300 shadow-xl">
           <div>
             {/* Visual Thumbnail */}
             <div className="w-full aspect-16/9 rounded-2xl bg-gradient-to-tr from-green-950 via-gray-900 to-gray-950 border border-gray-800 p-4 mb-6 flex items-center justify-center relative overflow-hidden group-hover:border-emerald-500/30 transition-colors">

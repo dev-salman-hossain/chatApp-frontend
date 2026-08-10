@@ -1,14 +1,7 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import React, { useState } from 'react';
 import { ArrowRight, Smile, Store, Sparkles, Heart, Coffee, Star, ThumbsUp, Flame, Check, Search, Image as ImageIcon } from 'lucide-react';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const stickerPacks = {
   trending: [
@@ -36,37 +29,22 @@ const stickerPacks = {
 };
 
 const StickersBusinessSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<'trending' | 'cuteCats' | 'reactions'>('trending');
   const [selectedSticker, setSelectedSticker] = useState<string>('🐊 YEAH!');
 
-  useGSAP(() => {
-    gsap.from('.sb-card', {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-      },
-      y: 35,
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-      ease: 'power3.out',
-    });
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="stickers" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         
         {/* Left Card: Express Yourself - Stickers */}
-        <div className="sb-card relative rounded-3xl bg-[#161B22] border border-gray-800/80 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-green-500/30 transition-all duration-500 shadow-xl">
+        <div className="relative rounded-3xl bg-[#161B22] border border-gray-800/80 p-6 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden group hover:border-green-500/30 transition-all duration-500 shadow-xl">
           <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-green-500/10 rounded-full blur-3xl group-hover:bg-green-500/20 transition-all" />
           
           {/* Visual Showcase Box */}
-          <div className="relative z-10 w-full mb-8 bg-gray-950/80 border border-gray-800/90 rounded-2xl p-5 shadow-2xl">
+          <div className="relative z-10 w-full mb-8 bg-gray-950/80 border border-gray-800/90 rounded-2xl p-4 sm:p-5 shadow-2xl">
             
             {/* Header / Tabs */}
-            <div className="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
+            <div className="flex flex-wrap items-center justify-between border-b border-gray-800 pb-3 mb-4 gap-2">
               <div className="flex items-center gap-2 text-green-400 font-bold text-xs">
                 <Smile className="w-4 h-4" />
                 <span>alapBD Sticker Store</span>
@@ -76,7 +54,7 @@ const StickersBusinessSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('trending')}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
                     activeTab === 'trending' ? 'bg-green-600 text-white shadow' : 'text-gray-400 hover:text-white'
                   }`}
                 >
@@ -85,7 +63,7 @@ const StickersBusinessSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('cuteCats')}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
                     activeTab === 'cuteCats' ? 'bg-green-600 text-white shadow' : 'text-gray-400 hover:text-white'
                   }`}
                 >
@@ -94,7 +72,7 @@ const StickersBusinessSection: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveTab('reactions')}
-                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                  className={`px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all cursor-pointer ${
                     activeTab === 'reactions' ? 'bg-green-600 text-white shadow' : 'text-gray-400 hover:text-white'
                   }`}
                 >
@@ -106,24 +84,24 @@ const StickersBusinessSection: React.FC = () => {
             {/* Simulated Chat Message Preview with Selected Sticker */}
             <div className="mb-4 bg-gray-900/90 border border-gray-800 rounded-xl p-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-400 font-medium">Selected sticker:</span>
+                <span className="text-xs text-gray-400 font-medium">Selected:</span>
                 <span className="text-xs font-bold text-green-400 bg-green-500/10 px-2 py-0.5 rounded border border-green-500/20">
                   {selectedSticker}
                 </span>
               </div>
-              <span className="text-[10px] text-gray-500 font-semibold">Click any sticker below to preview</span>
+              <span className="text-[10px] text-gray-500 font-semibold hidden sm:inline">Click any sticker below</span>
             </div>
 
             {/* Sticker Items Grid */}
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {stickerPacks[activeTab].map((sticker) => (
                 <button
                   key={sticker.id}
                   type="button"
                   onClick={() => setSelectedSticker(`${sticker.emoji} ${sticker.label}`)}
-                  className={`bg-gradient-to-br ${sticker.bg} border ${sticker.border} rounded-2xl p-3.5 flex flex-col items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer shadow-lg group/sticker select-none`}
+                  className={`bg-gradient-to-br ${sticker.bg} border ${sticker.border} rounded-2xl p-3 flex flex-col items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer shadow-lg group/sticker select-none`}
                 >
-                  <span className="text-4xl mb-1.5 leading-none group-hover/sticker:scale-125 transition-transform duration-200 filter drop-shadow-md">
+                  <span className="text-3xl sm:text-4xl mb-1.5 leading-none group-hover/sticker:scale-125 transition-transform duration-200 filter drop-shadow-md">
                     {sticker.emoji}
                   </span>
                   <span className={`text-[10px] font-black ${sticker.text} tracking-wider bg-gray-950/80 px-2 py-0.5 rounded-full border border-gray-800`}>
@@ -160,11 +138,11 @@ const StickersBusinessSection: React.FC = () => {
         </div>
 
         {/* Right Card: Made for Business - Catalog */}
-        <div className="sb-card relative rounded-3xl bg-[#161B22] border border-gray-800/80 p-8 sm:p-10 flex flex-col justify-between overflow-hidden group hover:border-emerald-500/30 transition-all duration-500 shadow-xl">
+        <div className="relative rounded-3xl bg-[#161B22] border border-gray-800/80 p-6 sm:p-8 md:p-10 flex flex-col justify-between overflow-hidden group hover:border-emerald-500/30 transition-all duration-500 shadow-xl">
           <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl group-hover:bg-emerald-500/20 transition-all" />
           
           {/* Visual Showcase Box */}
-          <div className="relative z-10 w-full mb-8 bg-gray-950/80 border border-gray-800/90 rounded-2xl p-5 shadow-2xl">
+          <div className="relative z-10 w-full mb-8 bg-gray-950/80 border border-gray-800/90 rounded-2xl p-4 sm:p-5 shadow-2xl">
             <div className="flex items-center justify-between border-b border-gray-800 pb-3 mb-4 text-xs font-semibold text-gray-400">
               <div className="flex items-center gap-2 text-emerald-400 font-bold">
                 <Store className="w-4 h-4" />
@@ -174,7 +152,7 @@ const StickersBusinessSection: React.FC = () => {
             </div>
 
             {/* Catalog Items Grid */}
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               <div className="bg-gray-900 border border-gray-800 rounded-xl p-2.5 flex items-center justify-between hover:border-emerald-500/40 transition-colors">
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 rounded-lg bg-amber-900/40 border border-amber-700/40 flex items-center justify-center text-amber-300 font-bold text-xs">☕</div>
