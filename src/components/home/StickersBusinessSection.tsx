@@ -121,12 +121,12 @@ const StickersBusinessSection: React.FC = () => {
                   key={sticker.id}
                   type="button"
                   onClick={() => setSelectedSticker(`${sticker.emoji} ${sticker.label}`)}
-                  className={`bg-gradient-to-br ${sticker.bg} border ${sticker.border} rounded-xl p-3 flex flex-col items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer shadow-md group/sticker`}
+                  className={`bg-gradient-to-br ${sticker.bg} border ${sticker.border} rounded-2xl p-3.5 flex flex-col items-center justify-center hover:scale-110 active:scale-95 transition-all duration-200 cursor-pointer shadow-lg group/sticker select-none`}
                 >
-                  <span className="text-3xl mb-1 group-hover/sticker:scale-125 transition-transform duration-200">
+                  <span className="text-4xl mb-1.5 leading-none group-hover/sticker:scale-125 transition-transform duration-200 filter drop-shadow-md">
                     {sticker.emoji}
                   </span>
-                  <span className={`text-[10px] font-black ${sticker.text} tracking-wider`}>
+                  <span className={`text-[10px] font-black ${sticker.text} tracking-wider bg-gray-950/80 px-2 py-0.5 rounded-full border border-gray-800`}>
                     {sticker.label}
                   </span>
                 </button>

@@ -63,10 +63,11 @@ const TestimonialsSection: React.FC = () => {
           >
             <div>
               <div className="flex items-center justify-between mb-4">
-                <div className="flex gap-1 text-amber-400">
+                <div className="flex items-center gap-1.5 bg-amber-500/10 px-3 py-1.5 rounded-full border border-amber-500/20">
                   {Array.from({ length: t.rating }).map((_, rIdx) => (
-                    <Star key={rIdx} className="w-4 h-4 fill-amber-400" />
+                    <Star key={rIdx} className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0" />
                   ))}
+                  <span className="text-xs font-bold text-amber-300 ml-1">5.0</span>
                 </div>
                 <Quote className="w-6 h-6 text-gray-700 group-hover:text-green-500/40 transition-colors" />
               </div>
