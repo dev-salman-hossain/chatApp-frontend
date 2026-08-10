@@ -2,6 +2,8 @@ import Navbar from "@/components/home/Navbar";
 import HeroSection from "@/components/home/Hero";
 import LiveDemoSection from "@/components/home/LiveDemoSection";
 import FeatureSection from "@/components/home/Feature";
+import SecurityArchitectureSection from "@/components/home/SecurityArchitectureSection";
+import IntegrationsAppsSection from "@/components/home/IntegrationsAppsSection";
 import StickersBusinessSection from "@/components/home/StickersBusinessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
 import NewsletterArticlesSection from "@/components/home/NewsletterArticlesSection";
@@ -79,6 +81,16 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Security & Encryption Deep-Dive */}
+        <div id="security">
+          <SecurityArchitectureSection />
+        </div>
+
+        {/* Cross-Platform Apps & APIs */}
+        <div id="apps">
+          <IntegrationsAppsSection />
+        </div>
+
         {/* Express Yourself (Stickers) & Made For Business */}
         <div id="stickers">
           <StickersBusinessSection />
@@ -97,7 +109,7 @@ export default function Home() {
           <StatsSection />
         </div>
 
-        {/* FAQ Accordion Section (2-Column Desktop Grid) */}
+        {/* FAQ Accordion Section (Independent 2-Column Grid) */}
         <FaqSection />
 
         {/* Call To Action Section */}

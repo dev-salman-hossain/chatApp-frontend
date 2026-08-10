@@ -21,6 +21,8 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { name: 'Features', id: 'features' },
     { name: 'Demo', id: 'demo' },
+    { name: 'Security', id: 'security' },
+    { name: 'Apps', id: 'apps' },
     { name: 'Stickers', id: 'stickers' },
     { name: 'Stats', id: 'stats' },
     { name: 'FAQ', id: 'faq' },
@@ -66,7 +68,7 @@ const Navbar: React.FC = () => {
                   alap<span className="text-green-500">BD</span>
                 </span>
                 <span className="px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider bg-green-500/10 text-green-400 border border-green-500/20 rounded-md">
-                  v2.0
+                  v1.0.0
                 </span>
               </div>
             </div>

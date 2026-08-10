@@ -10,18 +10,12 @@ interface FaqItem {
   icon: React.ElementType;
 }
 
-const faqs: FaqItem[] = [
+const leftFaqs: FaqItem[] = [
   {
     id: 1,
     question: 'How does end-to-end encryption work on alapBD?',
     answer: 'All your text messages, voice calls, video streams, and attachments are encrypted on your device before being transmitted. Only the intended recipient possesses the decryption key.',
     icon: Lock,
-  },
-  {
-    id: 2,
-    question: 'Is alapBD completely free to use?',
-    answer: 'Yes! The personal version of alapBD is 100% free forever with zero message limits, unlimited 1-on-1 calls, and group chats up to 10,000 members.',
-    icon: Sparkles,
   },
   {
     id: 3,
@@ -30,16 +24,25 @@ const faqs: FaqItem[] = [
     icon: Smartphone,
   },
   {
-    id: 4,
-    question: 'How does the Business Catalog feature work?',
-    answer: 'Business profiles can set up interactive digital catalogs to showcase products and services directly within chat threads. Customers can browse items, inquire, and place orders directly in conversation.',
-    icon: MessageSquare,
-  },
-  {
     id: 5,
     question: 'What is the maximum file size I can share?',
     answer: 'You can share photos, videos, documents, and voice notes up to 2GB per file with lightning fast CDN delivery.',
     icon: Zap,
+  },
+];
+
+const rightFaqs: FaqItem[] = [
+  {
+    id: 2,
+    question: 'Is alapBD completely free to use?',
+    answer: 'Yes! The personal version of alapBD is 100% free forever with zero message limits, unlimited 1-on-1 calls, and group chats up to 10,000 members.',
+    icon: Sparkles,
+  },
+  {
+    id: 4,
+    question: 'How does the Business Catalog feature work?',
+    answer: 'Business profiles can set up interactive digital catalogs to showcase products and services directly within chat threads. Customers can browse items, inquire, and place orders directly in conversation.',
+    icon: MessageSquare,
   },
   {
     id: 6,
@@ -55,6 +58,56 @@ const FaqSection: React.FC = () => {
   const toggleFaq = (id: number) => {
     setOpenIds((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
+    );
+  };
+
+  const renderFaqCard = (faq: FaqItem) => {
+    const isOpen = openIds.includes(faq.id);
+    const Icon = faq.icon;
+
+    return (
+      <div
+        key={faq.id}
+        className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+          isOpen
+            ? 'bg-[#161B22] border-green-500/40 shadow-xl shadow-green-950/20'
+            : 'bg-gray-900/60 border-gray-800/90 hover:border-gray-700'
+        }`}
+      >
+        <button
+          type="button"
+          onClick={() => toggleFaq(faq.id)}
+          className="w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group"
+        >
+          <div className="flex items-center gap-3.5 pr-4">
+            <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+              isOpen ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-gray-800 text-gray-400 group-hover:text-white'
+            }`}>
+              <Icon className="w-4 h-4" />
+            </div>
+            <span className="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-green-400 transition-colors">
+              {faq.question}
+            </span>
+          </div>
+
+          <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-300 shrink-0 ${
+            isOpen ? 'bg-green-500/20 text-green-400 rotate-180' : 'bg-gray-800 text-gray-400'
+          }`}>
+            <ChevronDown className="w-4 h-4" />
+          </div>
+        </button>
+
+        {/* Animated Accordion Content */}
+        <div
+          className={`transition-all duration-300 ease-in-out overflow-hidden ${
+            isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/60 ml-12">
+            {faq.answer}
+          </div>
+        </div>
+      </div>
     );
   };
 
@@ -74,57 +127,14 @@ const FaqSection: React.FC = () => {
         </p>
       </div>
 
-      {/* 2-Column Desktop Grid Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        {faqs.map((faq) => {
-          const isOpen = openIds.includes(faq.id);
-          const Icon = faq.icon;
-
-          return (
-            <div
-              key={faq.id}
-              className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                isOpen
-                  ? 'bg-[#161B22] border-green-500/40 shadow-xl shadow-green-950/20'
-                  : 'bg-gray-900/60 border-gray-800/90 hover:border-gray-700'
-              }`}
-            >
-              <button
-                type="button"
-                onClick={() => toggleFaq(faq.id)}
-                className="w-full p-5 sm:p-6 flex items-center justify-between text-left focus:outline-none cursor-pointer group"
-              >
-                <div className="flex items-center gap-3.5 pr-4">
-                  <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                    isOpen ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-gray-800 text-gray-400 group-hover:text-white'
-                  }`}>
-                    <Icon className="w-4 h-4" />
-                  </div>
-                  <span className="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-green-400 transition-colors">
-                    {faq.question}
-                  </span>
-                </div>
-
-                <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-300 shrink-0 ${
-                  isOpen ? 'bg-green-500/20 text-green-400 rotate-180' : 'bg-gray-800 text-gray-400'
-                }`}>
-                  <ChevronDown className="w-4 h-4" />
-                </div>
-              </button>
-
-              {/* Animated Accordion Content */}
-              <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden ${
-                  isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
-                }`}
-              >
-                <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/60 ml-12">
-                  {faq.answer}
-                </div>
-              </div>
-            </div>
-          );
-        })}
+      {/* 2 Independent Columns Desktop Grid Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-start">
+        <div className="space-y-4">
+          {leftFaqs.map(renderFaqCard)}
+        </div>
+        <div className="space-y-4">
+          {rightFaqs.map(renderFaqCard)}
+        </div>
       </div>
     </section>
   );
