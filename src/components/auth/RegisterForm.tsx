@@ -2,20 +2,18 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { MessageSquare, Phone, Lock, User, Eye, EyeOff, UserPlus, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { MessageSquare, Phone, Lock, User, Eye, EyeOff, UserPlus, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const RegisterForm: React.FC = () => {
   const [fullName, setFullName] = useState('');
   const [countryCode, setCountryCode] = useState('+880');
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [agreeTerms, setAgreeTerms] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('');
-  const [focusedField, setFocusedField] = useState<'fullName' | 'phone' | 'password' | 'confirm' | null>(null);
+  const [focusedField, setFocusedField] = useState<'fullName' | 'phone' | 'password' | null>(null);
 
   const getPasswordStrength = () => {
     if (!password) return 0;
@@ -31,11 +29,6 @@ const RegisterForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      setError('Passwords do not match');
-      return;
-    }
-    setError('');
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -63,7 +56,7 @@ const RegisterForm: React.FC = () => {
               </span>
             </Link>
             <h2 className="text-2xl font-bold text-white tracking-tight">Create Account</h2>
-            <p className="text-gray-400 text-xs mt-1">Register using your mobile phone number</p>
+            <p className="text-gray-400 text-xs mt-1">Register using Name, Phone & Password</p>
           </div>
 
           {/* Desktop Form Title */}
@@ -72,7 +65,7 @@ const RegisterForm: React.FC = () => {
               Create Free Account
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             </h2>
-            <p className="text-xs text-gray-400 mt-1">Register with your mobile phone number in seconds</p>
+            <p className="text-xs text-gray-400 mt-1">Register with Name, Phone Number & Password</p>
           </div>
 
           {/* Success Animated State */}
@@ -83,7 +76,7 @@ const RegisterForm: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Account Created!</h3>
-                <p className="text-xs text-green-300 mt-1">Your phone number is verified. Log in to start chatting.</p>
+                <p className="text-xs text-green-300 mt-1">Your phone account is ready. Log in to start chatting.</p>
               </div>
               <Link
                 href="/login"
@@ -95,13 +88,8 @@ const RegisterForm: React.FC = () => {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
-              {error && (
-                <div className="bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-medium p-3 rounded-xl animate-in fade-in">
-                  {error}
-                </div>
-              )}
-
-              {/* Full Name */}
+              
+              {/* 1. Full Name */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-gray-300">Full Name</label>
                 <div className="relative group">
@@ -121,7 +109,7 @@ const RegisterForm: React.FC = () => {
                 </div>
               </div>
 
-              {/* Phone Number Field */}
+              {/* 2. Phone Number Field */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-gray-300">Phone Number</label>
                 <div className="flex gap-2">
@@ -157,7 +145,7 @@ const RegisterForm: React.FC = () => {
                 </div>
               </div>
 
-              {/* Password Field */}
+              {/* 3. Password Field */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-gray-300">Password</label>
                 <div className="relative group">
@@ -197,26 +185,6 @@ const RegisterForm: React.FC = () => {
                     </span>
                   </div>
                 )}
-              </div>
-
-              {/* Confirm Password */}
-              <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-300">Confirm Password</label>
-                <div className="relative group">
-                  <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'confirm' ? 'text-emerald-400' : 'text-gray-500'}`}>
-                    <Lock className="w-4 h-4" />
-                  </div>
-                  <input
-                    type={showPassword ? 'text' : 'password'}
-                    required
-                    placeholder="••••••••"
-                    value={confirmPassword}
-                    onFocus={() => setFocusedField('confirm')}
-                    onBlur={() => setFocusedField(null)}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
-                  />
-                </div>
               </div>
 
               {/* Terms Checkbox */}
