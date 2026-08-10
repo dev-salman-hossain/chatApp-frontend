@@ -115,7 +115,7 @@ const RegisterForm: React.FC = () => {
                     onFocus={() => setFocusedField('fullName')}
                     onBlur={() => setFocusedField(null)}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-gray-900/90 border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
+                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
                   />
                 </div>
               </div>
@@ -135,7 +135,7 @@ const RegisterForm: React.FC = () => {
                     onFocus={() => setFocusedField('email')}
                     onBlur={() => setFocusedField(null)}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-gray-900/90 border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
+                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
                   />
                 </div>
               </div>
@@ -155,7 +155,7 @@ const RegisterForm: React.FC = () => {
                     onFocus={() => setFocusedField('password')}
                     onBlur={() => setFocusedField(null)}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-gray-900/90 border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-10 py-3 transition-all duration-200"
+                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-10 py-3 transition-all duration-200"
                   />
                   <button
                     type="button"
@@ -197,7 +197,7 @@ const RegisterForm: React.FC = () => {
                     onFocus={() => setFocusedField('confirm')}
                     onBlur={() => setFocusedField(null)}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full bg-gray-900/90 border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
+                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
                   />
                 </div>
               </div>
