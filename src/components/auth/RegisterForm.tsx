@@ -2,11 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { MessageSquare, Mail, Lock, User, Eye, EyeOff, UserPlus, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { MessageSquare, Phone, Lock, User, Eye, EyeOff, UserPlus, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 const RegisterForm: React.FC = () => {
   const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
+  const [countryCode, setCountryCode] = useState('+880');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -14,7 +15,7 @@ const RegisterForm: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
-  const [focusedField, setFocusedField] = useState<'fullName' | 'email' | 'password' | 'confirm' | null>(null);
+  const [focusedField, setFocusedField] = useState<'fullName' | 'phone' | 'password' | 'confirm' | null>(null);
 
   const getPasswordStrength = () => {
     if (!password) return 0;
@@ -62,7 +63,7 @@ const RegisterForm: React.FC = () => {
               </span>
             </Link>
             <h2 className="text-2xl font-bold text-white tracking-tight">Create Account</h2>
-            <p className="text-gray-400 text-xs mt-1">Join encrypted messaging for free</p>
+            <p className="text-gray-400 text-xs mt-1">Register using your mobile phone number</p>
           </div>
 
           {/* Desktop Form Title */}
@@ -71,7 +72,7 @@ const RegisterForm: React.FC = () => {
               Create Free Account
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             </h2>
-            <p className="text-xs text-gray-400 mt-1">Start chatting securely in less than 30 seconds</p>
+            <p className="text-xs text-gray-400 mt-1">Register with your mobile phone number in seconds</p>
           </div>
 
           {/* Success Animated State */}
@@ -82,7 +83,7 @@ const RegisterForm: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Account Created!</h3>
-                <p className="text-xs text-green-300 mt-1">Your encrypted profile is ready. Log in to start.</p>
+                <p className="text-xs text-green-300 mt-1">Your phone number is verified. Log in to start chatting.</p>
               </div>
               <Link
                 href="/login"
@@ -110,7 +111,7 @@ const RegisterForm: React.FC = () => {
                   <input
                     type="text"
                     required
-                    placeholder="John Doe"
+                    placeholder="Salman Hossain"
                     value={fullName}
                     onFocus={() => setFocusedField('fullName')}
                     onBlur={() => setFocusedField(null)}
@@ -120,23 +121,39 @@ const RegisterForm: React.FC = () => {
                 </div>
               </div>
 
-              {/* Email Field */}
+              {/* Phone Number Field */}
               <div className="space-y-1.5">
-                <label className="text-xs font-semibold text-gray-300">Email Address</label>
-                <div className="relative group">
-                  <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'email' ? 'text-emerald-400' : 'text-gray-500'}`}>
-                    <Mail className="w-4 h-4" />
+                <label className="text-xs font-semibold text-gray-300">Phone Number</label>
+                <div className="flex gap-2">
+                  {/* Country Code Selector */}
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    className="bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:outline-none text-white text-xs font-bold rounded-xl px-2.5 py-3 transition-all cursor-pointer shrink-0"
+                  >
+                    <option value="+880">🇧🇩 +880 (BD)</option>
+                    <option value="+1">🇺🇸 +1 (US)</option>
+                    <option value="+44">🇬🇧 +44 (UK)</option>
+                    <option value="+91">🇮🇳 +91 (IN)</option>
+                    <option value="+971">🇦🇪 +971 (UAE)</option>
+                    <option value="+60">🇲🇾 +60 (MY)</option>
+                  </select>
+
+                  <div className="relative flex-1 group">
+                    <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'phone' ? 'text-emerald-400' : 'text-gray-500'}`}>
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="01712-345678"
+                      value={phone}
+                      onFocus={() => setFocusedField('phone')}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
+                    />
                   </div>
-                  <input
-                    type="email"
-                    required
-                    placeholder="name@example.com"
-                    value={email}
-                    onFocus={() => setFocusedField('email')}
-                    onBlur={() => setFocusedField(null)}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3 transition-all duration-200"
-                  />
                 </div>
               </div>
 

@@ -2,16 +2,17 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { MessageSquare, Mail, Lock, Eye, EyeOff, LogIn, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
+import { MessageSquare, Phone, Lock, Eye, EyeOff, LogIn, ArrowRight, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 
 const LoginForm: React.FC = () => {
-  const [email, setEmail] = useState('');
+  const [countryCode, setCountryCode] = useState('+880');
+  const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [focusedField, setFocusedField] = useState<'email' | 'password' | null>(null);
+  const [focusedField, setFocusedField] = useState<'phone' | 'password' | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ const LoginForm: React.FC = () => {
               </span>
             </Link>
             <h2 className="text-2xl font-bold text-white tracking-tight">Welcome Back</h2>
-            <p className="text-gray-400 text-xs mt-1">Log in to your encrypted chat dashboard</p>
+            <p className="text-gray-400 text-xs mt-1">Log in with your phone number</p>
           </div>
 
           {/* Desktop Form Title */}
@@ -51,7 +52,7 @@ const LoginForm: React.FC = () => {
               Log In to Account
               <span className="w-2 h-2 rounded-full bg-green-500 animate-ping" />
             </h2>
-            <p className="text-xs text-gray-400 mt-1">Enter your email and password to sync messages</p>
+            <p className="text-xs text-gray-400 mt-1">Enter your mobile phone number and password</p>
           </div>
 
           {/* Success Animated State */}
@@ -62,7 +63,7 @@ const LoginForm: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Welcome Back!</h3>
-                <p className="text-xs text-green-300 mt-1">Authentication verified. Loading your chats...</p>
+                <p className="text-xs text-green-300 mt-1">Phone number verified. Loading your chats...</p>
               </div>
               <Link
                 href="/"
@@ -75,26 +76,42 @@ const LoginForm: React.FC = () => {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               
-              {/* Email Field with Micro-animation Focus */}
+              {/* Phone Number Field */}
               <div className="space-y-1.5">
                 <label className="text-xs font-semibold text-gray-300 flex items-center justify-between">
-                  <span>Email Address</span>
-                  {focusedField === 'email' && <span className="text-[10px] text-green-400 font-normal animate-pulse">Required</span>}
+                  <span>Phone Number</span>
+                  {focusedField === 'phone' && <span className="text-[10px] text-green-400 font-normal animate-pulse">Required</span>}
                 </label>
-                <div className="relative group">
-                  <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'email' ? 'text-green-400' : 'text-gray-500'}`}>
-                    <Mail className="w-4 h-4" />
+                <div className="flex gap-2">
+                  {/* Country Code Selector */}
+                  <select
+                    value={countryCode}
+                    onChange={(e) => setCountryCode(e.target.value)}
+                    className="bg-[#0D1117] border border-gray-700/80 focus:border-green-500 focus:outline-none text-white text-xs font-bold rounded-xl px-2.5 py-3.5 transition-all cursor-pointer shrink-0"
+                  >
+                    <option value="+880">🇧🇩 +880 (BD)</option>
+                    <option value="+1">🇺🇸 +1 (US)</option>
+                    <option value="+44">🇬🇧 +44 (UK)</option>
+                    <option value="+91">🇮🇳 +91 (IN)</option>
+                    <option value="+971">🇦🇪 +971 (UAE)</option>
+                    <option value="+60">🇲🇾 +60 (MY)</option>
+                  </select>
+
+                  <div className="relative flex-1 group">
+                    <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'phone' ? 'text-green-400' : 'text-gray-500'}`}>
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="01712-345678"
+                      value={phone}
+                      onFocus={() => setFocusedField('phone')}
+                      onBlur={() => setFocusedField(null)}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3.5 transition-all duration-200"
+                    />
                   </div>
-                  <input
-                    type="email"
-                    required
-                    placeholder="name@example.com"
-                    value={email}
-                    onFocus={() => setFocusedField('email')}
-                    onBlur={() => setFocusedField(null)}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-[#0D1117] border border-gray-700/80 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:outline-none text-white placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3.5 transition-all duration-200"
-                  />
                 </div>
               </div>
 
@@ -173,16 +190,16 @@ const LoginForm: React.FC = () => {
               <div className="grid grid-cols-2 gap-3">
                 <button
                   type="button"
-                  className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700 py-2.5 rounded-xl text-xs font-bold transition-all hover:scale-105"
+                  className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700 py-2.5 rounded-xl text-xs font-bold transition-all hover:scale-105 cursor-pointer"
                 >
                   <span className="text-emerald-400">G</span>
                   <span>Google</span>
                 </button>
                 <button
                   type="button"
-                  className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700 py-2.5 rounded-xl text-xs font-bold transition-all hover:scale-105"
+                  className="flex items-center justify-center gap-2 bg-gray-900 hover:bg-gray-800 text-gray-300 hover:text-white border border-gray-800 hover:border-gray-700 py-2.5 rounded-xl text-xs font-bold transition-all hover:scale-105 cursor-pointer"
                 >
-                  <span>📱 Phone OTP</span>
+                  <span>💬 SMS OTP</span>
                 </button>
               </div>
             </form>
