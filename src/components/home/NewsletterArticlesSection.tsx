@@ -40,10 +40,10 @@ const NewsletterArticlesSection: React.FC = () => {
 
   return (
     <section ref={containerRef} className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch">
         
-        {/* Newsletter Subscription Box (Left Column - 5 cols) */}
-        <div className="na-card lg:col-span-5 bg-gradient-to-br from-green-950/40 via-[#161B22] to-emerald-950/40 border border-green-500/20 rounded-3xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+        {/* Newsletter Subscription Box (Left Column - 6 cols) */}
+        <div className="na-card lg:col-span-6 bg-gradient-to-br from-green-950/40 via-[#161B22] to-emerald-950/40 border border-green-500/20 rounded-3xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 -mr-12 -mt-12 w-48 h-48 bg-green-500/10 rounded-full blur-2xl pointer-events-none" />
           
           <div>
@@ -74,11 +74,11 @@ const NewsletterArticlesSection: React.FC = () => {
                   placeholder="Your email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="flex-1 bg-gray-900/90 border border-gray-700/80 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 text-white placeholder-gray-500 text-sm rounded-xl px-4 py-3 transition-all"
+                  className="flex-1 bg-[#0D1117] border border-gray-700/80 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 text-white placeholder-gray-500 text-sm rounded-xl px-4 py-3 transition-all"
                 />
                 <button
                   type="submit"
-                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg shadow-green-950/50 hover:scale-105 shrink-0"
+                  className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold text-sm px-6 py-3 rounded-xl transition-all shadow-lg shadow-green-950/50 hover:scale-105 shrink-0 cursor-pointer"
                 >
                   Subscribe
                 </button>
@@ -87,8 +87,8 @@ const NewsletterArticlesSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Privacy Article Card (Middle Column - 3.5 cols) */}
-        <div className="na-card lg:col-span-3.5 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-green-500/30 transition-all duration-300 shadow-xl">
+        {/* Privacy Article Card (Middle Column - 3 cols) */}
+        <div className="na-card lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-green-500/30 transition-all duration-300 shadow-xl">
           <div>
             {/* Visual Thumbnail */}
             <div className="w-full aspect-16/9 rounded-2xl bg-gradient-to-tr from-emerald-950 via-gray-900 to-gray-950 border border-gray-800 p-4 mb-6 flex items-center justify-center relative overflow-hidden group-hover:border-green-500/30 transition-colors">
@@ -102,17 +102,17 @@ const NewsletterArticlesSection: React.FC = () => {
               <span>PRIVACY</span>
             </div>
 
-            <h4 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-green-400 transition-colors">
+            <h4 className="text-base font-bold text-white mb-2 leading-snug group-hover:text-green-400 transition-colors">
               How end-to-end encryption keeps you safe
             </h4>
 
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">
+            <p className="text-gray-400 text-xs leading-relaxed mb-6">
               A look at the technology behind alapBD&apos;s strong client-side encryption and zero-knowledge model.
             </p>
           </div>
 
           <a
-            href="#privacy"
+            href="/#privacy"
             className="inline-flex items-center gap-2 text-green-400 font-bold text-xs hover:text-green-300 transition-colors group/link"
           >
             <span>Read article</span>
@@ -120,8 +120,8 @@ const NewsletterArticlesSection: React.FC = () => {
           </a>
         </div>
 
-        {/* Tips Article Card (Right Column - 3.5 cols) */}
-        <div className="na-card lg:col-span-3.5 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-emerald-500/30 transition-all duration-300 shadow-xl">
+        {/* Tips Article Card (Right Column - 3 cols) */}
+        <div className="na-card lg:col-span-3 bg-[#161B22] border border-gray-800/80 rounded-3xl p-6 flex flex-col justify-between group hover:border-emerald-500/30 transition-all duration-300 shadow-xl">
           <div>
             {/* Visual Thumbnail */}
             <div className="w-full aspect-16/9 rounded-2xl bg-gradient-to-tr from-green-950 via-gray-900 to-gray-950 border border-gray-800 p-4 mb-6 flex items-center justify-center relative overflow-hidden group-hover:border-emerald-500/30 transition-colors">
@@ -135,17 +135,17 @@ const NewsletterArticlesSection: React.FC = () => {
               <span>TIPS</span>
             </div>
 
-            <h4 className="text-lg font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
+            <h4 className="text-base font-bold text-white mb-2 leading-snug group-hover:text-emerald-400 transition-colors">
               10 ways to make the most of group chats
             </h4>
 
-            <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-6">
+            <p className="text-gray-400 text-xs leading-relaxed mb-6">
               Simple tips to keep your groups fun, organized, productive, and secure with custom admin controls.
             </p>
           </div>
 
           <a
-            href="#tips"
+            href="/#faq"
             className="inline-flex items-center gap-2 text-emerald-400 font-bold text-xs hover:text-emerald-300 transition-colors group/link"
           >
             <span>Read article</span>
