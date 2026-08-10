@@ -1,14 +1,7 @@
 'use client';
 
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
+import React from 'react';
 import { ShieldCheck, Lock, EyeOff, KeyRound, Fingerprint, HardDrive, CheckCircle2, Zap } from 'lucide-react';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
 
 const securityFeatures = [
   {
@@ -56,24 +49,8 @@ const securityFeatures = [
 ];
 
 const SecurityArchitectureSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    gsap.from('.sec-card', {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: 'power3.out',
-    });
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="security" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
@@ -95,14 +72,14 @@ const SecurityArchitectureSection: React.FC = () => {
           return (
             <div
               key={idx}
-              className="sec-card bg-[#161B22] border border-gray-800/80 hover:border-green-500/30 p-6 sm:p-7 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl group"
+              className="bg-[#161B22] border border-gray-800/80 hover:border-green-500/40 p-6 sm:p-7 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl group"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-12 h-12 rounded-2xl ${sec.color} border flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                     <Icon className="w-6 h-6" />
                   </div>
-                  <span className="text-[10px] font-bold text-gray-400 bg-gray-900 border border-gray-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                  <span className="text-[10px] font-bold text-gray-300 bg-gray-900 border border-gray-800 px-2.5 py-1 rounded-full uppercase tracking-wider">
                     {sec.badge}
                   </span>
                 </div>

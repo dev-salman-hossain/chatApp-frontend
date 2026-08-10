@@ -1,14 +1,7 @@
 'use client';
 
-import React, { useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
-import { Monitor, Smartphone, Globe, Code, ArrowRight, CheckCircle2, Download, ExternalLink } from 'lucide-react';
-
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import React from 'react';
+import { Monitor, Smartphone, Globe, Code, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const platforms = [
   {
@@ -50,24 +43,8 @@ const platforms = [
 ];
 
 const IntegrationsAppsSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useGSAP(() => {
-    gsap.from('.plat-card', {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        start: 'top 80%',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: 'power3.out',
-    });
-  }, { scope: containerRef });
-
   return (
-    <section ref={containerRef} className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="apps" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
@@ -89,7 +66,7 @@ const IntegrationsAppsSection: React.FC = () => {
           return (
             <div
               key={idx}
-              className="plat-card bg-[#161B22] border border-gray-800/80 hover:border-green-500/30 p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl group"
+              className="bg-[#161B22] border border-gray-800/80 hover:border-green-500/40 p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl group"
             >
               <div>
                 <div className="flex items-center justify-between mb-5">
@@ -122,7 +99,7 @@ const IntegrationsAppsSection: React.FC = () => {
 
               <a
                 href={plat.href}
-                className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-gray-900 hover:bg-green-600 border border-gray-700/80 hover:border-green-500 py-3 rounded-xl transition-all shadow-md group/btn"
+                className="w-full inline-flex items-center justify-center gap-2 text-xs font-bold text-white bg-gray-900 hover:bg-green-600 border border-gray-700/80 hover:border-green-500 py-3 rounded-xl transition-all shadow-md group/btn cursor-pointer"
               >
                 <span>{plat.action}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
