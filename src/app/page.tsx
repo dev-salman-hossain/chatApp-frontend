@@ -4,7 +4,6 @@ import LiveDemoSection from "@/components/home/LiveDemoSection";
 import FeatureSection from "@/components/home/Feature";
 import StickersBusinessSection from "@/components/home/StickersBusinessSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
-import PricingSection from "@/components/home/PricingSection";
 import NewsletterArticlesSection from "@/components/home/NewsletterArticlesSection";
 import StatsSection from "@/components/home/StatsSection";
 import FaqSection from "@/components/home/FaqSection";
@@ -88,9 +87,6 @@ export default function Home() {
         {/* User Testimonials Section */}
         <TestimonialsSection />
 
-        {/* Transparent Pricing Section */}
-        <PricingSection />
-
         {/* Newsletter & Privacy/Tips Articles Bar */}
         <div id="articles">
           <NewsletterArticlesSection />
@@ -101,7 +97,7 @@ export default function Home() {
           <StatsSection />
         </div>
 
-        {/* FAQ Accordion Section */}
+        {/* FAQ Accordion Section (2-Column Desktop Grid) */}
         <FaqSection />
 
         {/* Call To Action Section */}

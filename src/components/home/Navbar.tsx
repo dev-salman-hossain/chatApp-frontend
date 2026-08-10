@@ -22,7 +22,6 @@ const Navbar: React.FC = () => {
     { name: 'Features', id: 'features' },
     { name: 'Demo', id: 'demo' },
     { name: 'Stickers', id: 'stickers' },
-    { name: 'Pricing', id: 'pricing' },
     { name: 'Stats', id: 'stats' },
     { name: 'FAQ', id: 'faq' },
   ];
