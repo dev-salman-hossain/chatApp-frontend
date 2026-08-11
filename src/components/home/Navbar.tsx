@@ -21,32 +21,14 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Features', id: 'features' },
-    { name: 'Demo', id: 'demo' },
-    { name: 'Security', id: 'security' },
-    { name: 'Apps', id: 'apps' },
-    { name: 'Stickers', id: 'stickers' },
-    { name: 'Stats', id: 'stats' },
-    { name: 'FAQ', id: 'faq' },
+    { name: 'Features', href: '/features' },
+    { name: 'Calls', href: '/calls' },
+    { name: 'Stickers', href: '/stickers' },
+    { name: 'Business', href: '/business' },
+    { name: 'About', href: '/about' },
+    { name: 'Blog', href: '/blog' },
+    { name: 'Status', href: '/status' },
   ];
-
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    setMobileMenuOpen(false);
-    if (typeof window !== 'undefined') {
-      if (pathname === '/') {
-        e.preventDefault();
-        const elem = document.getElementById(targetId);
-        if (elem) {
-          elem.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        } else {
-          window.location.hash = targetId;
-        }
-      } else {
-        // If on /login or /register page, navigate directly to homepage section
-        window.location.href = `/#${targetId}`;
-      }
-    }
-  };
 
   return (
     <header
@@ -79,14 +61,17 @@ const Navbar: React.FC = () => {
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={`/#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
-                className="text-sm font-semibold text-slate-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 hover:after:w-full after:transition-all cursor-pointer"
+                href={link.href}
+                className={`text-sm font-semibold transition-colors relative py-1 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-green-500 hover:after:w-full after:transition-all cursor-pointer ${
+                  pathname === link.href
+                    ? 'text-green-600 dark:text-green-400 after:w-full'
+                    : 'text-slate-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400'
+                }`}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 
@@ -160,14 +145,14 @@ const Navbar: React.FC = () => {
         <div className="md:hidden bg-slate-50 dark:bg-[#161B22] border-b border-slate-200 dark:border-gray-800 px-4 pt-4 pb-6 mt-3 space-y-4 animate-in slide-in-from-top duration-200">
           <nav className="flex flex-col space-y-3">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={`/#${link.id}`}
-                onClick={(e) => handleNavClick(e, link.id)}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
                 className="text-base font-medium text-slate-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 py-2 border-b border-slate-200 dark:border-gray-800/50"
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </nav>
 

@@ -69,10 +69,10 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Product</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="/#features" onClick={(e) => handleNavClick(e, 'features')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Features</a></li>
-              <li><a href="/#demo" onClick={(e) => handleNavClick(e, 'demo')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Voice & Video Calls</a></li>
-              <li><a href="/#stickers" onClick={(e) => handleNavClick(e, 'stickers')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Stickers & GIFs</a></li>
-              <li><a href="/#stickers" onClick={(e) => handleNavClick(e, 'stickers')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Business Catalog</a></li>
+              <li><Link href="/features" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Features</Link></li>
+              <li><Link href="/calls" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Voice & Video Calls</Link></li>
+              <li><Link href="/stickers" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Stickers & GIFs</Link></li>
+              <li><Link href="/business" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Business Catalog</Link></li>
             </ul>
           </div>
 
@@ -80,11 +80,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Company</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="/#security" onClick={(e) => handleNavClick(e, 'security')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">About Us</a></li>
-              <li><a href="/#apps" onClick={(e) => handleNavClick(e, 'apps')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Careers</a></li>
-              <li><a href="/#articles" onClick={(e) => handleNavClick(e, 'articles')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Blog</a></li>
-              <li><a href="/#articles" onClick={(e) => handleNavClick(e, 'articles')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Press</a></li>
-              <li><a href="/#newsletter" onClick={(e) => handleNavClick(e, 'newsletter')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Contact Us</a></li>
+              <li><Link href="/about" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">About Us</Link></li>
+              <li><Link href="/careers" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Careers</Link></li>
+              <li><Link href="/blog" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Blog</Link></li>
+              <li><Link href="/press" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Press</Link></li>
+              <li><Link href="/contact" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -92,11 +92,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-sm font-bold text-slate-900 dark:text-white uppercase tracking-wider mb-4">Resources</h4>
             <ul className="space-y-2.5 text-sm">
-              <li><a href="/#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Help Center</a></li>
-              <li><a href="/#faq" onClick={(e) => handleNavClick(e, 'faq')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Guides</a></li>
-              <li><a href="/#security" onClick={(e) => handleNavClick(e, 'security')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Privacy Policy</a></li>
-              <li><a href="/#security" onClick={(e) => handleNavClick(e, 'security')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Terms of Service</a></li>
-              <li><a href="/#stats" onClick={(e) => handleNavClick(e, 'stats')} className="hover:text-green-600 dark:hover:text-green-400 transition-colors cursor-pointer">Status</a></li>
+              <li><Link href="/help" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Help Center</Link></li>
+              <li><Link href="/guides" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Guides</Link></li>
+              <li><Link href="/privacy" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/status" className="hover:text-green-600 dark:hover:text-green-400 transition-colors">Status</Link></li>
             </ul>
           </div>
 
