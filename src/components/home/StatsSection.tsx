@@ -111,10 +111,10 @@ const StatsSection: React.FC = () => {
   return (
     <section id="stats" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       <div className="text-center max-w-2xl mx-auto mb-8">
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-4 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
           Engineered for scale & absolute privacy
         </h2>
-        <p className="text-gray-400 text-base sm:text-lg">
+        <p className="text-slate-600 dark:text-gray-400 text-base sm:text-lg">
           Connecting millions of people effortlessly with uncompromised encryption and lightning speed.
         </p>
       </div>
@@ -125,12 +125,12 @@ const StatsSection: React.FC = () => {
           return (
             <div
               key={idx}
-              className="bg-[#161B22] border border-gray-800/80 hover:border-green-500/40 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-900/10 group"
+              className="bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 hover:border-green-500/50 p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md group"
             >
-              <div className="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-400 mb-5 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-green-700 dark:text-green-400 mb-5 group-hover:scale-110 transition-transform">
                 <Icon className="w-6 h-6" />
               </div>
-              <h3 className="text-3xl sm:text-4xl font-black text-white mb-2 tracking-tight">
+              <h3 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-2 tracking-tight">
                 <CountUpNumber
                   target={stat.target}
                   decimals={stat.decimals}
@@ -138,8 +138,8 @@ const StatsSection: React.FC = () => {
                   suffix={stat.suffix}
                 />
               </h3>
-              <p className="text-sm font-bold text-gray-200 mb-1">{stat.label}</p>
-              <p className="text-xs text-gray-400 leading-relaxed">{stat.desc}</p>
+              <p className="text-sm font-bold text-slate-800 dark:text-gray-200 mb-1">{stat.label}</p>
+              <p className="text-xs text-slate-500 dark:text-gray-400 leading-relaxed">{stat.desc}</p>
             </div>
           );
         })}

@@ -70,8 +70,8 @@ const FaqSection: React.FC = () => {
         key={faq.id}
         className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
           isOpen
-            ? 'bg-[#161B22] border-green-500/40 shadow-xl shadow-green-950/20'
-            : 'bg-gray-900/60 border-gray-800/90 hover:border-gray-700'
+            ? 'bg-white dark:bg-[#161B22] border-green-500/50 dark:border-green-500/40 shadow-md shadow-green-500/10 dark:shadow-xl'
+            : 'bg-slate-100/80 dark:bg-gray-900/60 border-slate-200 dark:border-gray-800/90 hover:border-slate-300 dark:hover:border-gray-700'
         }`}
       >
         <button
@@ -81,17 +81,17 @@ const FaqSection: React.FC = () => {
         >
           <div className="flex items-center gap-3.5 pr-4">
             <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-              isOpen ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-gray-800 text-gray-400 group-hover:text-white'
+              isOpen ? 'bg-green-500/20 text-green-700 dark:text-green-400 border border-green-500/30' : 'bg-slate-200 dark:bg-gray-800 text-slate-500 dark:text-gray-400 group-hover:text-slate-900 dark:group-hover:text-white'
             }`}>
               <Icon className="w-4 h-4" />
             </div>
-            <span className="text-sm sm:text-base font-bold text-white leading-snug group-hover:text-green-400 transition-colors">
+            <span className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-snug group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">
               {faq.question}
             </span>
           </div>
 
           <div className={`w-7 h-7 rounded-lg flex items-center justify-center transition-transform duration-300 shrink-0 ${
-            isOpen ? 'bg-green-500/20 text-green-400 rotate-180' : 'bg-gray-800 text-gray-400'
+            isOpen ? 'bg-green-500/20 text-green-700 dark:text-green-400 rotate-180' : 'bg-slate-200 dark:bg-gray-800 text-slate-500 dark:text-gray-400'
           }`}>
             <ChevronDown className="w-4 h-4" />
           </div>
@@ -103,7 +103,7 @@ const FaqSection: React.FC = () => {
             isOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-gray-800/60 ml-12">
+          <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 dark:text-gray-300 leading-relaxed border-t border-slate-200 dark:border-gray-800/60 ml-12">
             {faq.answer}
           </div>
         </div>
@@ -115,14 +115,14 @@ const FaqSection: React.FC = () => {
     <section id="faq" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
           <HelpCircle className="w-3.5 h-3.5" />
           <span>Frequently Asked Questions</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-black text-white mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-3 tracking-tight">
           Everything you need to know
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">
+        <p className="text-slate-600 dark:text-gray-400 text-sm sm:text-base">
           Got questions? We have got answers. Here is how alapBD keeps your conversations safe and connected.
         </p>
       </div>

@@ -49,13 +49,13 @@ const FeatureSection: React.FC<FeatureProps> = ({
       ref={sectionRef}
       className={`flex flex-col ${
         reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'
-      } items-center justify-between px-6 sm:px-10 py-8 lg:py-10 max-w-7xl mx-auto gap-8 lg:gap-12 border-b border-gray-800/40`}
+      } items-center justify-between px-6 sm:px-10 py-8 lg:py-10 max-w-7xl mx-auto gap-8 lg:gap-12 border-b border-slate-200 dark:border-gray-800/40 transition-colors duration-300`}
     >
       {/* Mockup Frame Container */}
       <div className="w-full lg:w-1/2 flex justify-center feature-anim relative group">
         <div className="absolute -inset-4 bg-gradient-to-r from-green-500/20 to-emerald-600/10 rounded-3xl blur-2xl opacity-50 group-hover:opacity-75 transition-opacity" />
-        <div className="relative rounded-3xl p-3 bg-gradient-to-b from-gray-800 to-gray-900 border border-gray-700/80 shadow-2xl shadow-black/60 max-w-md w-full overflow-hidden">
-          <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-gray-950">
+        <div className="relative rounded-3xl p-3 bg-gradient-to-b from-slate-100 to-slate-200 dark:from-gray-800 dark:to-gray-900 border border-slate-300 dark:border-gray-700/80 shadow-sm max-w-md w-full overflow-hidden">
+          <div className="relative aspect-4/3 w-full rounded-2xl overflow-hidden bg-slate-200 dark:bg-gray-950">
             <Image
               src={imageSrc}
               alt={title}
@@ -68,23 +68,23 @@ const FeatureSection: React.FC<FeatureProps> = ({
 
       {/* Content Side */}
       <div className="w-full lg:w-1/2 max-w-xl feature-anim">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-xs uppercase tracking-widest mb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 font-semibold text-xs uppercase tracking-widest mb-4">
           <span>{label}</span>
         </div>
 
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-white leading-tight tracking-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-6 text-slate-900 dark:text-white leading-tight tracking-tight">
           {title}
         </h2>
 
-        <p className="text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
+        <p className="text-slate-600 dark:text-gray-400 text-base sm:text-lg mb-8 leading-relaxed">
           {description}
         </p>
 
         {/* Highlights List */}
         <div className="space-y-3 mb-8">
           {highlights.map((item, idx) => (
-            <div key={idx} className="flex items-center gap-3 text-gray-300 font-medium text-sm">
-              <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
+            <div key={idx} className="flex items-center gap-3 text-slate-700 dark:text-gray-300 font-medium text-sm">
+              <CheckCircle2 className="w-5 h-5 text-green-600 dark:text-green-500 shrink-0" />
               <span>{item}</span>
             </div>
           ))}
@@ -92,7 +92,7 @@ const FeatureSection: React.FC<FeatureProps> = ({
 
         <a
           href="#register"
-          className="inline-flex items-center gap-2 text-green-400 font-bold hover:text-green-300 transition-colors group"
+          className="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-bold hover:text-green-700 dark:hover:text-green-300 transition-colors group"
         >
           <span>Learn more</span>
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

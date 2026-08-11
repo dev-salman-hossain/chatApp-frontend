@@ -43,14 +43,14 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section id="testimonials" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <div className="text-center max-w-2xl mx-auto mb-8">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
           <MessageCircle className="w-3.5 h-3.5" />
           <span>User Testimonials</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl font-extrabold text-white mb-3 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-3 tracking-tight">
           Loved by thousands of users & teams
         </h2>
-        <p className="text-gray-400 text-sm sm:text-base">
+        <p className="text-slate-600 dark:text-gray-400 text-sm sm:text-base">
           Here is what founders, creators, and daily communicators say about alapBD.
         </p>
       </div>
@@ -59,7 +59,7 @@ const TestimonialsSection: React.FC = () => {
         {testimonials.map((t, idx) => (
           <div
             key={idx}
-            className="bg-[#161B22] border border-gray-800/80 hover:border-green-500/30 p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-xl group"
+            className="bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 hover:border-green-500/50 p-6 rounded-3xl flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 shadow-sm hover:shadow-md group"
           >
             <div>
               <div className="flex items-center justify-between mb-4">
@@ -67,23 +67,23 @@ const TestimonialsSection: React.FC = () => {
                   {Array.from({ length: t.rating }).map((_, rIdx) => (
                     <Star key={rIdx} className="w-4 h-4 fill-amber-400 text-amber-400 shrink-0" />
                   ))}
-                  <span className="text-xs font-bold text-amber-300 ml-1">5.0</span>
+                  <span className="text-xs font-bold text-amber-600 dark:text-amber-300 ml-1">5.0</span>
                 </div>
-                <Quote className="w-6 h-6 text-gray-700 group-hover:text-green-500/40 transition-colors" />
+                <Quote className="w-6 h-6 text-slate-300 dark:text-gray-700 group-hover:text-green-500/40 transition-colors" />
               </div>
 
-              <p className="text-sm text-gray-300 leading-relaxed mb-6 italic">
+              <p className="text-sm text-slate-700 dark:text-gray-300 leading-relaxed mb-6 italic">
                 &ldquo;{t.comment}&rdquo;
               </p>
             </div>
 
-            <div className="flex items-center gap-3 border-t border-gray-800/80 pt-4">
+            <div className="flex items-center gap-3 border-t border-slate-200 dark:border-gray-800/80 pt-4">
               <div className={`w-10 h-10 rounded-full bg-gradient-to-tr ${t.avatarBg} flex items-center justify-center text-white font-bold text-sm shadow-md`}>
                 {t.name.charAt(0)}
               </div>
               <div>
-                <h4 className="text-sm font-bold text-white">{t.name}</h4>
-                <p className="text-xs text-gray-400">{t.role} • <span className="text-green-400">{t.company}</span></p>
+                <h4 className="text-sm font-bold text-slate-900 dark:text-white">{t.name}</h4>
+                <p className="text-xs text-slate-500 dark:text-gray-400">{t.role} • <span className="text-green-600 dark:text-green-400 font-semibold">{t.company}</span></p>
               </div>
             </div>
           </div>

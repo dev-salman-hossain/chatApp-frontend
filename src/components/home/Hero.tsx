@@ -100,7 +100,7 @@ const HeroSection: React.FC = () => {
     <section className="px-3 sm:px-6 lg:px-8 py-3 sm:py-6 max-w-7xl mx-auto w-full">
       <div 
         ref={containerRef} 
-        className="relative bg-[#161B22] border border-gray-800/80 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-10 md:p-12 overflow-hidden shadow-2xl shadow-black/50 flex items-center"
+        className="relative bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-10 md:p-12 overflow-hidden shadow-sm dark:shadow-none flex items-center transition-colors duration-300"
       >
         {/* Background Ambient Glow */}
         <div className="absolute top-1/2 -left-20 -translate-y-1/2 w-64 sm:w-96 h-64 sm:h-96 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
@@ -110,17 +110,17 @@ const HeroSection: React.FC = () => {
         <div className="relative z-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Headline & Action (6 cols) */}
-          <div className="lg:col-span-6 flex flex-col justify-center text-white">
-            <div className="hero-text-anim inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-6 w-fit">
+          <div className="lg:col-span-6 flex flex-col justify-center">
+            <div className="hero-text-anim inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-4 sm:mb-6 w-fit">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Next-Gen Messaging</span>
             </div>
 
-            <h1 className="hero-text-anim text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-6 whitespace-pre-line text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-100 to-gray-400">
+            <h1 className="hero-text-anim text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] sm:leading-[1.1] mb-4 sm:mb-6 whitespace-pre-line text-transparent bg-clip-text bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600 dark:from-white dark:via-gray-100 dark:to-gray-400">
               {slides[currentSlide].title}
             </h1>
 
-            <p className="hero-text-anim text-gray-300 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed max-w-lg">
+            <p className="hero-text-anim text-slate-600 dark:text-gray-300 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 leading-relaxed max-w-lg">
               {slides[currentSlide].desc}
             </p>
             
@@ -128,7 +128,7 @@ const HeroSection: React.FC = () => {
             <div className="hero-text-anim flex flex-wrap items-center gap-3 sm:gap-4 mb-6 sm:mb-8">
               <a
                 href="/register"
-                className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-xl shadow-green-950/60 hover:scale-105 cursor-pointer flex-1 sm:flex-initial"
+                className="flex items-center justify-center gap-2 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm transition-all shadow-xl shadow-green-950/20 dark:shadow-green-950/60 hover:scale-105 cursor-pointer flex-1 sm:flex-initial"
               >
                 <UserPlus className="w-4 h-4 sm:w-5 sm:h-5" />
                 <span>Sign Up Free</span>
@@ -136,9 +136,9 @@ const HeroSection: React.FC = () => {
               
               <a
                 href="/login"
-                className="flex items-center justify-center gap-2 bg-gray-900/90 hover:bg-gray-800 text-gray-200 hover:text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-semibold text-xs sm:text-sm border border-gray-700 hover:border-gray-600 transition-all backdrop-blur-sm cursor-pointer flex-1 sm:flex-initial"
+                className="flex items-center justify-center gap-2 bg-slate-100 dark:bg-gray-900/90 hover:bg-slate-200 dark:hover:bg-gray-800 text-slate-800 dark:text-gray-200 hover:text-slate-900 dark:hover:text-white px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-semibold text-xs sm:text-sm border border-slate-300 dark:border-gray-700 hover:border-slate-400 dark:hover:border-gray-600 transition-all backdrop-blur-sm cursor-pointer flex-1 sm:flex-initial"
               >
-                <LogIn className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
+                <LogIn className="w-4 h-4 sm:w-5 sm:h-5 text-green-600 dark:text-green-400" />
                 <span>Log In</span>
               </a>
             </div>
@@ -153,7 +153,7 @@ const HeroSection: React.FC = () => {
                     onClick={() => setCurrentSlide(idx)}
                     aria-label={`Go to slide ${idx + 1}`}
                     className={`h-2 sm:h-2.5 rounded-full transition-all duration-500 cursor-pointer ${
-                      idx === currentSlide ? 'w-6 sm:w-8 bg-green-500' : 'w-2 sm:w-2.5 bg-gray-700 hover:bg-gray-500'
+                      idx === currentSlide ? 'w-6 sm:w-8 bg-green-500' : 'w-2 sm:w-2.5 bg-slate-300 dark:bg-gray-700 hover:bg-slate-400 dark:hover:bg-gray-500'
                     }`}
                   />
                 ))}
@@ -164,7 +164,7 @@ const HeroSection: React.FC = () => {
                   type="button"
                   onClick={prevSlide}
                   aria-label="Previous slide"
-                  className="p-1.5 sm:p-2 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700 transition-colors"
+                  className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-gray-900 border border-slate-300 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-gray-700 transition-colors"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
@@ -172,7 +172,7 @@ const HeroSection: React.FC = () => {
                   type="button"
                   onClick={nextSlide}
                   aria-label="Next slide"
-                  className="p-1.5 sm:p-2 rounded-xl bg-gray-900 border border-gray-800 text-gray-300 hover:text-white hover:border-gray-700 transition-colors"
+                  className="p-1.5 sm:p-2 rounded-xl bg-slate-100 dark:bg-gray-900 border border-slate-300 dark:border-gray-800 text-slate-700 dark:text-gray-300 hover:text-slate-900 dark:hover:text-white hover:border-slate-400 dark:hover:border-gray-700 transition-colors"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -184,8 +184,8 @@ const HeroSection: React.FC = () => {
           <div className="lg:col-span-6 relative flex items-center justify-center w-full mt-2 lg:mt-0">
             
             {/* Image Frame Box */}
-            <div className="hero-img-anim relative w-full max-w-lg aspect-square sm:aspect-16/10 rounded-2xl sm:rounded-3xl bg-gray-950/90 border border-gray-800 p-2.5 sm:p-4 shadow-2xl overflow-hidden group">
-              <div className="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden bg-gray-900 flex items-center justify-center">
+            <div className="hero-img-anim relative w-full max-w-lg aspect-square sm:aspect-16/10 rounded-2xl sm:rounded-3xl bg-slate-100 dark:bg-gray-950/90 border border-slate-200 dark:border-gray-800 p-2.5 sm:p-4 shadow-2xl overflow-hidden group">
+              <div className="relative w-full h-full rounded-xl sm:rounded-2xl overflow-hidden bg-slate-200/60 dark:bg-gray-900 flex items-center justify-center">
                 {slides.map((slide, index) => (
                   <div
                     key={slide.id}
@@ -211,16 +211,16 @@ const HeroSection: React.FC = () => {
                     return (
                       <div
                         key={idx}
-                        className="msg-bubble bg-gray-950/95 backdrop-blur-md border border-gray-800 text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl shadow-xl w-full max-w-[220px] sm:max-w-[280px] self-start"
+                        className="msg-bubble bg-white/95 dark:bg-gray-950/95 backdrop-blur-md border border-slate-200 dark:border-gray-800 text-slate-900 dark:text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl shadow-xl w-full max-w-[220px] sm:max-w-[280px] self-start"
                       >
                         <div className="flex justify-between items-center mb-0.5 sm:mb-1">
                           <div className="flex items-center gap-1.5 sm:gap-2">
                             <div className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${msg.color}`}></div>
-                            <span className="font-bold text-[11px] sm:text-xs text-gray-200">{msg.sender}</span>
+                            <span className="font-bold text-[11px] sm:text-xs text-slate-800 dark:text-gray-200">{msg.sender}</span>
                           </div>
-                          <span className="text-[9px] sm:text-[10px] text-gray-400">{msg.time}</span>
+                          <span className="text-[9px] sm:text-[10px] text-slate-500 dark:text-gray-400">{msg.time}</span>
                         </div>
-                        <p className="text-[11px] sm:text-xs font-medium text-gray-100 truncate">{msg.text}</p>
+                        <p className="text-[11px] sm:text-xs font-medium text-slate-700 dark:text-gray-100 truncate">{msg.text}</p>
                       </div>
                     );
                   }
@@ -228,12 +228,12 @@ const HeroSection: React.FC = () => {
                   return (
                     <div
                       key={idx}
-                      className="msg-bubble bg-gradient-to-r from-green-900/95 to-emerald-950/95 backdrop-blur-md text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl shadow-xl w-full max-w-[200px] sm:max-w-[260px] self-end border border-green-700/50"
+                      className="msg-bubble bg-gradient-to-r from-green-600 to-emerald-700 dark:from-green-900/95 dark:to-emerald-950/95 backdrop-blur-md text-white p-2.5 sm:p-3 rounded-xl sm:rounded-2xl shadow-xl w-full max-w-[200px] sm:max-w-[260px] self-end border border-green-500/30 dark:border-green-700/50"
                     >
-                      <p className="text-[11px] sm:text-xs font-medium mb-0.5 sm:mb-1 text-green-50 truncate">{msg.text}</p>
+                      <p className="text-[11px] sm:text-xs font-medium mb-0.5 sm:mb-1 text-white dark:text-green-50 truncate">{msg.text}</p>
                       <div className="flex justify-end items-center gap-1">
-                        <span className="text-[9px] sm:text-[10px] text-green-300/80">{msg.time}</span>
-                        <CheckCheck className="w-3.5 h-3.5 text-green-400" />
+                        <span className="text-[9px] sm:text-[10px] text-green-100 dark:text-green-300/80">{msg.time}</span>
+                        <CheckCheck className="w-3.5 h-3.5 text-white dark:text-green-400" />
                       </div>
                     </div>
                   );
