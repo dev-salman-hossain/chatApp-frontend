@@ -26,7 +26,7 @@ const LoginForm: React.FC = () => {
   return (
     <div className="w-full max-w-md mx-auto animate-in fade-in zoom-in-95 duration-300">
       {/* Inner Card Container */}
-      <div className="bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 rounded-3xl p-8 relative overflow-hidden shadow-md shadow-slate-200/40 dark:shadow-none transition-colors duration-300">
+      <div className="bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 rounded-3xl p-5 sm:p-8 relative overflow-hidden shadow-md shadow-slate-200/40 dark:shadow-none transition-colors duration-300">
         <div className="absolute top-0 right-0 -mr-16 -mt-16 w-48 h-48 bg-green-500/10 rounded-full blur-3xl pointer-events-none" />
 
           {/* Mobile Header (Hidden on lg desktop) */}
@@ -79,23 +79,23 @@ const LoginForm: React.FC = () => {
                   <span>Phone Number</span>
                   {focusedField === 'phone' && <span className="text-[10px] text-green-600 dark:text-green-400 font-normal animate-pulse">Required</span>}
                 </label>
-                <div className="flex gap-2">
+                <div className="flex gap-1.5 sm:gap-2">
                   {/* Country Code Selector */}
                   <select
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
-                    className="bg-slate-100 dark:bg-[#0D1117] border border-slate-300 dark:border-gray-700/80 focus:border-green-500 focus:outline-none text-slate-900 dark:text-white text-xs font-bold rounded-xl px-2.5 py-3.5 transition-all cursor-pointer shrink-0"
+                    className="w-[100px] sm:w-[125px] bg-slate-100 dark:bg-[#0D1117] border border-slate-300 dark:border-gray-700/80 focus:border-green-500 focus:outline-none text-slate-900 dark:text-white text-xs font-bold rounded-xl px-2 py-3 sm:py-3.5 transition-all cursor-pointer shrink-0 truncate"
                   >
-                    <option value="+880">🇧🇩 +880 (BD)</option>
-                    <option value="+1">🇺🇸 +1 (US)</option>
-                    <option value="+44">🇬🇧 +44 (UK)</option>
-                    <option value="+91">🇮🇳 +91 (IN)</option>
-                    <option value="+971">🇦🇪 +971 (UAE)</option>
-                    <option value="+60">🇲🇾 +60 (MY)</option>
+                    <option value="+880">🇧🇩 +880</option>
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+60">🇲🇾 +60</option>
                   </select>
 
-                  <div className="relative flex-1 group">
-                    <div className={`absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'phone' ? 'text-green-600 dark:text-green-400' : 'text-slate-400 dark:text-gray-500'}`}>
+                  <div className="relative flex-1 min-w-0 group">
+                    <div className={`absolute inset-y-0 left-0 pl-3 sm:pl-3.5 flex items-center pointer-events-none transition-colors ${focusedField === 'phone' ? 'text-green-600 dark:text-green-400' : 'text-slate-400 dark:text-gray-500'}`}>
                       <Phone className="w-4 h-4" />
                     </div>
                     <input
@@ -106,7 +106,7 @@ const LoginForm: React.FC = () => {
                       onFocus={() => setFocusedField('phone')}
                       onBlur={() => setFocusedField(null)}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-slate-100 dark:bg-[#0D1117] border border-slate-300 dark:border-gray-700/80 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 text-sm rounded-xl pl-10 pr-4 py-3.5 transition-all duration-200"
+                      className="w-full bg-slate-100 dark:bg-[#0D1117] border border-slate-300 dark:border-gray-700/80 focus:border-green-500 focus:ring-2 focus:ring-green-500/20 focus:outline-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 text-xs sm:text-sm rounded-xl pl-9 sm:pl-10 pr-3 sm:pr-4 py-3 sm:py-3.5 transition-all duration-200"
                     />
                   </div>
                 </div>
