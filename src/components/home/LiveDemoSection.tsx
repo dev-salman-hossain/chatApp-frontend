@@ -67,73 +67,73 @@ const LiveDemoSection: React.FC = () => {
       </div>
 
       {/* Simulator Widget Frame */}
-      <div className="max-w-3xl mx-auto bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800 rounded-3xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800 rounded-2xl sm:rounded-3xl overflow-hidden shadow-sm dark:shadow-none transition-colors duration-300">
         
         {/* Chat Header */}
-        <div className="bg-slate-100/90 dark:bg-gray-900/90 border-b border-slate-200 dark:border-gray-800 px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="relative">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white font-bold">
-                <Bot className="w-5 h-5" />
+        <div className="bg-slate-100/90 dark:bg-gray-900/90 border-b border-slate-200 dark:border-gray-800 px-3.5 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
+            <div className="relative shrink-0">
+              <div className="w-8 sm:w-10 h-8 sm:h-10 rounded-full bg-gradient-to-tr from-green-500 to-emerald-400 flex items-center justify-center text-white font-bold">
+                <Bot className="w-4 sm:w-5 h-4 sm:h-5" />
               </div>
-              <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-900 rounded-full" />
+              <span className="absolute bottom-0 right-0 w-2.5 sm:w-3 h-2.5 sm:h-3 bg-green-500 border-2 border-white dark:border-gray-900 rounded-full" />
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                alapBD Interactive Bot
-                <span className="text-[10px] bg-green-500/20 text-green-700 dark:text-green-400 px-2 py-0.5 rounded font-semibold">Online</span>
+            <div className="min-w-0">
+              <h4 className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white flex items-center gap-1.5 truncate">
+                <span>alapBD Bot</span>
+                <span className="text-[9px] sm:text-[10px] bg-green-500/20 text-green-700 dark:text-green-400 px-1.5 py-0.5 rounded font-semibold shrink-0">Online</span>
               </h4>
-              <p className="text-xs text-slate-500 dark:text-gray-400 flex items-center gap-1">
-                <Lock className="w-3 h-3 text-green-600 dark:text-green-400" />
-                End-to-End Encrypted Session
+              <p className="text-[10px] sm:text-xs text-slate-500 dark:text-gray-400 flex items-center gap-1 truncate">
+                <Lock className="w-3 h-3 text-green-600 dark:text-green-400 shrink-0" />
+                <span className="truncate">E2EE Encrypted Session</span>
               </p>
             </div>
           </div>
 
           {/* Preset Action Buttons */}
-          <div className="hidden sm:flex gap-2">
+          <div className="flex gap-1.5 sm:gap-2 shrink-0">
             <button
               onClick={() => handleSend("What are the core features?")}
-              className="text-xs bg-slate-200 dark:bg-gray-800 hover:bg-slate-300 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-300 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-gray-700 transition-colors"
+              className="text-[10px] sm:text-xs bg-slate-200 dark:bg-gray-800 hover:bg-slate-300 dark:hover:bg-gray-700 text-slate-700 dark:text-gray-300 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-slate-300 dark:border-gray-700 transition-colors cursor-pointer"
             >
-              Ask Features
+              <span className="hidden sm:inline">Ask </span>Features
             </button>
             <button
               onClick={() => handleSend(undefined, "🚀")}
-              className="text-xs bg-green-500/10 hover:bg-green-500/20 text-green-700 dark:text-green-400 px-3 py-1.5 rounded-lg border border-green-500/30 transition-colors flex items-center gap-1"
+              className="text-[10px] sm:text-xs bg-green-500/10 hover:bg-green-500/20 text-green-700 dark:text-green-400 px-2 sm:px-3 py-1 sm:py-1.5 rounded-lg border border-green-500/30 transition-colors flex items-center gap-1 cursor-pointer"
             >
-              <Smile className="w-3.5 h-3.5" />
-              Sticker 🚀
+              <Smile className="w-3 sm:w-3.5 h-3 sm:h-3.5" />
+              <span>🚀</span>
             </button>
           </div>
         </div>
 
         {/* Chat Stream Window */}
-        <div className="p-6 h-[340px] overflow-y-auto space-y-4 bg-slate-50/80 dark:bg-gray-950/60 scrollbar-thin">
+        <div className="p-3 sm:p-6 h-[300px] sm:h-[350px] overflow-y-auto space-y-3 sm:space-y-4 bg-slate-50/80 dark:bg-gray-950/60 scrollbar-thin">
           {messages.map((msg) => (
             <div
               key={msg.id}
               className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
             >
               <div
-                className={`max-w-[85%] sm:max-w-[70%] p-4 rounded-2xl shadow-md text-sm font-medium ${
+                className={`max-w-[90%] sm:max-w-[75%] p-3 sm:p-4 rounded-2xl shadow-sm text-xs sm:text-sm font-medium break-words ${
                   msg.sender === 'user'
                     ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-br-xs'
                     : 'bg-white dark:bg-gray-900 border border-slate-200 dark:border-gray-800 text-slate-800 dark:text-gray-200 rounded-bl-xs'
                 }`}
               >
                 {msg.sticker ? (
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl animate-bounce">{msg.sticker}</span>
-                    <span className="text-xs font-semibold opacity-90">{msg.text}</span>
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <span className="text-2xl sm:text-3xl animate-bounce">{msg.sticker}</span>
+                    <span className="text-xs font-semibold opacity-90 break-words">{msg.text}</span>
                   </div>
                 ) : (
-                  <p className="leading-relaxed">{msg.text}</p>
+                  <p className="leading-relaxed break-words">{msg.text}</p>
                 )}
                 
-                <div className={`flex items-center justify-end gap-1 mt-1.5 text-[10px] ${msg.sender === 'user' ? 'text-green-100 dark:text-green-200' : 'text-slate-400 dark:text-gray-400'}`}>
+                <div className={`flex items-center justify-end gap-1 mt-1 text-[9px] sm:text-[10px] ${msg.sender === 'user' ? 'text-green-100 dark:text-green-200' : 'text-slate-400 dark:text-gray-400'}`}>
                   <span>{msg.time}</span>
-                  {msg.sender === 'user' && <CheckCheck className="w-3.5 h-3.5 text-white dark:text-green-300" />}
+                  {msg.sender === 'user' && <CheckCheck className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-white dark:text-green-300" />}
                 </div>
               </div>
             </div>
@@ -146,13 +146,13 @@ const LiveDemoSection: React.FC = () => {
             e.preventDefault();
             handleSend();
           }}
-          className="bg-slate-100 dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800 p-4 flex items-center gap-3"
+          className="bg-slate-100 dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800 p-2.5 sm:p-4 flex items-center gap-1.5 sm:gap-3"
         >
-          <div className="flex gap-1.5">
+          <div className="flex gap-0.5 sm:gap-1 shrink-0">
             <button
               type="button"
               onClick={() => handleSend(undefined, "🔥")}
-              className="p-2 text-slate-500 dark:text-gray-400 hover:text-amber-500 hover:bg-slate-200 dark:hover:bg-gray-800 rounded-xl transition-colors text-lg"
+              className="p-1.5 sm:p-2 text-slate-500 dark:text-gray-400 hover:text-amber-500 hover:bg-slate-200 dark:hover:bg-gray-800 rounded-lg sm:rounded-xl transition-colors text-base sm:text-lg cursor-pointer"
               title="Send Flame Sticker"
             >
               🔥
@@ -160,7 +160,7 @@ const LiveDemoSection: React.FC = () => {
             <button
               type="button"
               onClick={() => handleSend(undefined, "❤️")}
-              className="p-2 text-slate-500 dark:text-gray-400 hover:text-pink-500 hover:bg-slate-200 dark:hover:bg-gray-800 rounded-xl transition-colors text-lg"
+              className="p-1.5 sm:p-2 text-slate-500 dark:text-gray-400 hover:text-pink-500 hover:bg-slate-200 dark:hover:bg-gray-800 rounded-lg sm:rounded-xl transition-colors text-base sm:text-lg cursor-pointer"
               title="Send Heart Sticker"
             >
               ❤️
@@ -169,15 +169,15 @@ const LiveDemoSection: React.FC = () => {
 
           <input
             type="text"
-            placeholder="Type your message to test..."
+            placeholder="Type your message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 bg-white dark:bg-gray-950 border border-slate-300 dark:border-gray-800 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 text-sm rounded-xl px-4 py-3 transition-all"
+            className="flex-1 min-w-0 bg-white dark:bg-gray-950 border border-slate-300 dark:border-gray-800 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 text-xs sm:text-sm rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 transition-all"
           />
 
           <button
             type="submit"
-            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white p-3 rounded-xl shadow-lg transition-all hover:scale-105"
+            className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white p-2.5 sm:p-3 rounded-xl shadow-md transition-all hover:scale-105 shrink-0 cursor-pointer"
           >
             <Send className="w-4 h-4" />
           </button>
