@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* Tailwind v4 theme variables */
 @theme {
   --color-background: var(--background);
@@ -14,6 +16,17 @@
 
 @layer base {
   :root {
+    --background: #F8FAFC;
+    --foreground: #0F172A;
+    --primary: #16A34A;
+    --primary-foreground: #ffffff;
+    --secondary: #F1F5F9;
+    --secondary-foreground: #1E293B;
+    --muted: #64748B;
+    --border: #E2E8F0;
+  }
+
+  html.dark {
     --background: #0D1117;
     --foreground: #F3F4F6;
     --primary: #16A34A;
@@ -33,6 +46,7 @@
     color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
@@ -41,27 +55,31 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0D1117;
+  background: var(--background);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2D3748;
+  background: #94A3B8;
   border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #2D3748;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #16A34A;
 }
 
-/* Fix Browser Autofill White Background on Inputs */
+/* Fix Browser Autofill Background on Inputs */
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-  -webkit-text-fill-color: #ffffff !important;
-  -webkit-box-shadow: 0 0 0px 1000px #0D1117 inset !important;
   transition: background-color 5000s ease-in-out 0s;
-  caret-color: #ffffff !important;
 }
 
-input {
+html.dark input {
   color-scheme: dark;
+}
+
+html.light input {
+  color-scheme: light;
 }

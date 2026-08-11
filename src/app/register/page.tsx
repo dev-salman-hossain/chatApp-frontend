@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function RegisterPage() {
   return (
-    <main className="min-h-screen bg-[#0D1117] text-gray-100 flex flex-col font-sans selection:bg-green-600 selection:text-white">
+    <main className="min-h-screen bg-slate-50 dark:bg-[#0D1117] text-slate-900 dark:text-gray-100 flex flex-col font-sans selection:bg-green-600 selection:text-white transition-colors duration-300">
       <Navbar />
 
       <div className="flex-1 flex items-center justify-center py-6">
