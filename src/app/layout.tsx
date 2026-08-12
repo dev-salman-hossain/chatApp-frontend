@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   keywords: ["chat", "messaging", "privacy", "encrypted chat", "alapBD", "video call"],
 };
 
+/**
+ * Root application layout establishing theme context, typography fonts, and initial script hydration.
+ */
 export default function RootLayout({
   children,
 }: {
