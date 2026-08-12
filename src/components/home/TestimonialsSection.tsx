@@ -39,6 +39,9 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+/**
+ * Renders user testimonials card grid with ratings and company info.
+ */
 const TestimonialsSection: React.FC = () => {
   return (
     <section id="testimonials" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
