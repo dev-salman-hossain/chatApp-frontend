@@ -9,6 +9,9 @@ export const metadata = {
   description: 'Explore thousands of animated Bengali meme stickers, GIFs, and custom reaction packs on alapBD.',
 };
 
+/**
+ * Stickers and animated GIF collection showcase page.
+ */
 export default function StickersPage() {
   const stickerPacks = [
     {
