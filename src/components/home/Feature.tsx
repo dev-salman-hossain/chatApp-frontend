@@ -20,6 +20,9 @@ interface FeatureProps {
   reverse?: boolean;
 }
 
+/**
+ * Renders an animated feature highlight row with image preview and key bullets.
+ */
 const FeatureSection: React.FC<FeatureProps> = ({
   label,
   title,
