@@ -100,9 +100,10 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, mode }) => {
         <div className="lg:col-span-6 w-full flex flex-col justify-center">
           
           {/* Animated Tab Selector (Login / Sign Up) */}
-          <div className="w-full max-w-md mx-auto mb-6 bg-slate-100 dark:bg-gray-900/90 border border-slate-200/80 dark:border-gray-800 p-1.5 rounded-2xl flex items-center shadow-sm">
+          <nav aria-label="Authentication Options" className="w-full max-w-md mx-auto mb-6 bg-slate-100 dark:bg-gray-900/90 border border-slate-200/80 dark:border-gray-800 p-1.5 rounded-2xl flex items-center shadow-sm">
             <Link
               href="/login"
+              aria-current={mode === 'login' ? 'page' : undefined}
               className={`flex-1 py-3 rounded-xl text-xs font-bold text-center transition-all duration-300 ${
                 mode === 'login'
                   ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md shadow-green-900/20 scale-[1.02]'
@@ -113,6 +114,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, mode }) => {
             </Link>
             <Link
               href="/register"
+              aria-current={mode === 'register' ? 'page' : undefined}
               className={`flex-1 py-3 rounded-xl text-xs font-bold text-center transition-all duration-300 ${
                 mode === 'register'
                   ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-md shadow-green-900/20 scale-[1.02]'
@@ -121,7 +123,7 @@ const AuthLayout: React.FC<AuthLayoutProps> = ({ children, mode }) => {
             >
               Sign Up Free
             </Link>
-          </div>
+          </nav>
 
           {/* Form Children */}
           {children}
