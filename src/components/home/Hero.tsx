@@ -97,9 +97,11 @@ const HeroSection: React.FC = () => {
   }, { dependencies: [currentSlide], scope: containerRef });
 
   return (
-    <section className="px-3 sm:px-6 lg:px-8 py-3 sm:py-6 max-w-7xl mx-auto w-full">
+    <section className="px-3 sm:px-6 lg:px-8 py-3 sm:py-6 max-w-7xl mx-auto w-full" aria-label="Hero Carousel Showcase">
       <div 
         ref={containerRef} 
+        role="region"
+        aria-roledescription="carousel"
         className="relative bg-white dark:bg-[#161B22] border border-slate-200/80 dark:border-gray-800/80 rounded-2xl sm:rounded-[2.5rem] p-5 sm:p-10 md:p-12 overflow-hidden shadow-sm dark:shadow-none flex items-center transition-colors duration-300"
       >
         {/* Background Ambient Glow */}
