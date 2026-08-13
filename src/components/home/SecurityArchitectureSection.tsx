@@ -48,9 +48,12 @@ const securityFeatures = [
   },
 ];
 
+/**
+ * SecurityArchitectureSection displays the multi-layered security & encryption features of alapBD.
+ */
 const SecurityArchitectureSection: React.FC = () => {
   return (
-    <section id="security" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <section id="security" aria-label="Security & Data Protection Architecture" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       {/* Header */}
       <div className="text-center max-w-2xl mx-auto mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400 font-semibold text-xs uppercase tracking-widest mb-3">
