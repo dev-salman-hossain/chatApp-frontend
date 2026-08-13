@@ -172,11 +172,13 @@ const LiveDemoSection: React.FC = () => {
             placeholder="Type your message..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
+            aria-label="Interactive Demo Chat Message"
             className="flex-1 min-w-0 bg-white dark:bg-gray-950 border border-slate-300 dark:border-gray-800 focus:border-green-500 focus:outline-none focus:ring-1 focus:ring-green-500 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-gray-500 text-xs sm:text-sm rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 transition-all"
           />
 
           <button
             type="submit"
+            aria-label="Send Message"
             className="bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white p-2.5 sm:p-3 rounded-xl shadow-md transition-all hover:scale-105 shrink-0 cursor-pointer"
           >
             <Send className="w-4 h-4" />
