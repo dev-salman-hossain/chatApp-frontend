@@ -31,7 +31,7 @@ const CtaSection: React.FC = () => {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="/register"
-                className="flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-green-950/20 dark:shadow-green-950/60 hover:scale-105 transition-all"
+                className="flex items-center gap-3 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-green-950/20 dark:shadow-green-950/60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all"
               >
                 <UserPlus className="w-5 h-5" />
                 <span>Create Free Account</span>
@@ -39,7 +39,7 @@ const CtaSection: React.FC = () => {
 
               <a
                 href="/login"
-                className="flex items-center gap-3 bg-white dark:bg-gray-900/90 hover:bg-slate-100 dark:hover:bg-gray-800 text-slate-800 dark:text-gray-200 hover:text-slate-900 dark:hover:text-white font-semibold px-8 py-4 rounded-2xl border border-slate-300 dark:border-gray-700/80 hover:border-slate-400 dark:hover:border-gray-600 transition-all"
+                className="flex items-center gap-3 bg-white dark:bg-gray-900/90 hover:bg-slate-100 dark:hover:bg-gray-800 text-slate-800 dark:text-gray-200 hover:text-slate-900 dark:hover:text-white font-semibold px-8 py-4 rounded-2xl border border-slate-300 dark:border-gray-700/80 hover:border-slate-400 dark:hover:border-gray-600 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 transition-all"
               >
                 <LogIn className="w-5 h-5 text-green-600 dark:text-green-400" />
                 <span>Login to Web App</span>
