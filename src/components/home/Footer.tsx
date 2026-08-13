@@ -129,7 +129,7 @@ const Footer: React.FC = () => {
           
           <div className="flex items-center gap-3 text-slate-600 dark:text-gray-400 bg-slate-200/80 dark:bg-gray-900/80 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-gray-800">
             <Globe className="w-4 h-4 text-green-600 dark:text-green-400" />
-            <select className="bg-transparent text-xs text-slate-800 dark:text-gray-300 focus:outline-none cursor-pointer">
+            <select aria-label="Select Language" className="bg-transparent text-xs text-slate-800 dark:text-gray-300 focus:outline-none cursor-pointer">
               <option value="en" className="bg-white dark:bg-gray-900 text-slate-900 dark:text-white">English 🌐</option>
               <option value="bn" className="bg-white dark:bg-gray-900 text-slate-900 dark:text-white">বাংলা 🌐</option>
             </select>
