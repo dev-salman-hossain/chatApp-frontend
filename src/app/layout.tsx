@@ -17,6 +17,7 @@ export const metadata: Metadata = {
   title: "alapBD — Fast, Simple & Secure Messaging",
   description: "Connect instantly with crystal clear voice, HD video calls, and end-to-end encrypted messaging.",
   keywords: ["chat", "messaging", "privacy", "encrypted chat", "alapBD", "video call"],
+  authors: [{ name: "alapBD Team" }],
 };
 
 /**
