@@ -96,6 +96,8 @@ const RegisterForm: React.FC = () => {
                   <input
                     type="text"
                     required
+                    autoComplete="name"
+                    aria-label="Full Name"
                     placeholder="Salman Hossain"
                     value={fullName}
                     onFocus={() => setFocusedField('fullName')}
@@ -114,6 +116,7 @@ const RegisterForm: React.FC = () => {
                   <select
                     value={countryCode}
                     onChange={(e) => setCountryCode(e.target.value)}
+                    aria-label="Select Country Code"
                     className="w-[100px] sm:w-[125px] bg-slate-100 dark:bg-[#0D1117] border border-slate-300 dark:border-gray-700/80 focus:border-emerald-500 focus:outline-none text-slate-900 dark:text-white text-xs font-bold rounded-xl px-2 py-3 transition-all cursor-pointer shrink-0 truncate"
                   >
                     <option value="+880">🇧🇩 +880</option>
@@ -131,6 +134,8 @@ const RegisterForm: React.FC = () => {
                     <input
                       type="tel"
                       required
+                      autoComplete="tel"
+                      aria-label="Mobile Phone Number"
                       placeholder="01712-345678"
                       value={phone}
                       onFocus={() => setFocusedField('phone')}
@@ -152,6 +157,8 @@ const RegisterForm: React.FC = () => {
                   <input
                     type={showPassword ? 'text' : 'password'}
                     required
+                    autoComplete="new-password"
+                    aria-label="Password"
                     placeholder="••••••••"
                     value={password}
                     onFocus={() => setFocusedField('password')}
@@ -162,6 +169,7 @@ const RegisterForm: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
+                    aria-label={showPassword ? "Hide password" : "Show password"}
                     className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 dark:text-gray-400 hover:text-slate-900 dark:hover:text-white transition-colors"
                   >
                     {showPassword ? <EyeOff className="w-4 h-4 text-emerald-600 dark:text-emerald-400" /> : <Eye className="w-4 h-4" />}
