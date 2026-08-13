@@ -107,9 +107,12 @@ const stats = [
   },
 ];
 
+/**
+ * StatsSection renders live counter metrics highlighting platform performance and active users.
+ */
 const StatsSection: React.FC = () => {
   return (
-    <section id="stats" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+    <section id="stats" aria-label="Platform Metrics and Performance Stats" className="py-8 lg:py-10 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
       <div className="text-center max-w-2xl mx-auto mb-8">
         <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4 tracking-tight">
           Engineered for scale & absolute privacy
