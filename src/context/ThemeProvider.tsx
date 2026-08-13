@@ -45,6 +45,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       root.classList.remove('dark');
       root.classList.add('light');
     }
+
+    // Update meta theme-color tag dynamically for browser header styling
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', newTheme === 'dark' ? '#0D1117' : '#FFFFFF');
+    }
   };
 
   const setTheme = (newTheme: Theme) => {
